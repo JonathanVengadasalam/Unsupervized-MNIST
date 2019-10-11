@@ -1,6 +1,28 @@
 # Unsupervized-MNIST
 An unsupervized machine learning with Python [Scikit-Learn](https://scikit-learn.org/stable/) on [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset
 
+![random sample of x](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/x%20random%20sample.png)
+
+![y distribution](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/y%20distribution.png)
+
+![pca rbf](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Drbf).png)
+
+![pca cosine](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Dcosine).png)
+
+![tsne](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/tsne%20(perplexity%3D10%20-%20epsilon%3D200).png)
+
+![k-means](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/k-means.png)
+
+![k-means clusters shape](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/k-means%20clusters%20shape.png)
+
+![ac](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac.png)
+
+![ac clusters shape](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac%20clusters%20shape.png)
+
+![ac cluster numero 3](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac%20cluster%20numero%203.png)
+
+![ac on tsne](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac%20on%20tsne.png)
+
 
 adjusted rand : 0.3562790028596672
 silhouette : 0.05946969180353207
