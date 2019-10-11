@@ -49,11 +49,7 @@ xprojected = pca.transform(x)
 yColor_xImshow_on_xProjection( xprojected, y, x_not_scaled )
 
 from sklearn.manifold import TSNE
-xprojected_tsne = TSNE(n_components=2,\
-                  perplexity=30,\
-                  learning_rate=200,\
-                  n_iter=5000)\
-            .fit_transform(x)
+xprojected_tsne = TSNE(n_components=2, perplexity=30, learning_rate=200, n_iter=5000).fit_transform(x)
 yColor_xImshow_on_xProjection( xprojected_tsne, y, x_not_scaled )
 
 from sklearn.cluster import KMeans
