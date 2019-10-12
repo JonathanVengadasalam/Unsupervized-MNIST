@@ -2,55 +2,44 @@
 %matplotlib inline
 %config IPCompleter.greedy=True
 import numpy as np
-import pandas as pd
-from matplotlib.offsetbox import AnnotationBbox, OffsetImage
-import matplotlib.pyplot as plt
-from math import ceil
+from utils import *
 
-from itertools import combinations, product
-from sklearn.metrics import silhouette_score, adjusted_rand_score, confusion_matrix
+#import data
+from tensorflow.python.keras.datasets import mnist
+(xtrain, ytrain), (xtest, ytest) = mnist.load_data()
+xdata = np.concatenate((xtrain,xtest))
+ydata = np.concatenate((ytrain,ytest))
+x_notscaled = xdata[::50,:,:]
+y = ydata[::50]
 
-from sklearn.datasets import fetch_mldata
-mnist = fetch_mldata("MNIST original")
-x_not_scaled = mnist.data[::50, :].astype(float)
-y = mnist.target[::50]
-x_not_scaled.shape
+#shuffle data
+from sklearn.utils import shuffle
+x_notscaled, y = shuffle(x_notscaled, y)
+random_sample(x_notscaled,40)
 
-data = np.concatenate( (x_not_scaled,np.reshape(y,(y.shape[0],1))), axis=1)
-np.random.shuffle(data)
-data[0:10,784]
-
-data = np.concatenate( (x_not_scaled,np.reshape(y,(y.shape[0],1))), axis=1 )
-np.random.shuffle(data)
-x_not_scaled = data[:,0:-1]
-y = data[:,-1]
-
+#scale data
 from sklearn.preprocessing import StandardScaler
-std_scale = StandardScaler().fit(x_not_scaled)
-x = std_scale.transform(x_not_scaled)
+x_reshaped = np.reshape(x_notscaled,(x_notscaled.shape[0],-1))
+std_scale = StandardScaler().fit(x_reshaped)
+x = std_scale.transform(x_reshaped)
+x = x.reshape((x.shape[0],28,28))
 
-plt.figure(figsize=(5,5))
-plt.hist(y, bins=30, color="steelblue")
-plt.xticks(range(0,10))
-plt.axis([-0.5,9.5,110,170])
-plt.title("Y distribution", fontsize=14);
 
 from sklearn.decomposition import KernelPCA
-
 pca = KernelPCA(n_components=4, kernel="rbf")
 xprojected = pca.fit_transform(x)
-
 yColor_on_xProjection(xprojected, y, 2)
 
 pca = KernelPCA(n_components=2, kernel="cosine")
 pca.fit(x)
 xprojected = pca.transform(x)
-
 yColor_xImshow_on_xProjection( xprojected, y, x_not_scaled )
 
 from sklearn.manifold import TSNE
 xprojected_tsne = TSNE(n_components=2, perplexity=30, learning_rate=200, n_iter=5000).fit_transform(x)
 yColor_xImshow_on_xProjection( xprojected_tsne, y, x_not_scaled )
+
+from sklearn.metrics import silhouette_score, adjusted_rand_score, confusion_matrix
 
 from sklearn.cluster import KMeans
 km = KMeans(n_clusters=10, init="k-means++", max_iter=500, n_init=20, n_jobs=2)
