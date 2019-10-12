@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.offsetbox import AnnotationBbox, OffsetImage
+from itertools import combinations, product
+from math import ceil
 
 def random_sample(x, n_sample=20):
     
