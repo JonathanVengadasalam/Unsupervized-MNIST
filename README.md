@@ -9,11 +9,11 @@ An unsupervized machine learning with Python [Scikit-Learn](https://scikit-learn
 
 ![tsne](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/tsne%20(perplexity%3D10%20-%20epsilon%3D200).png)
 
-![k-means](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/k-means.png)
+![k-means](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/km%20distributions.png)
 
 ![k-means clusters shape](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/k-means%20clusters%20shape.png)
 
-![ac](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac.png)
+![ac](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac%20distributions.png)
 
 ![ac clusters shape](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/ac%20clusters%20shape.png)
 
