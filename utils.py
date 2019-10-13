@@ -5,12 +5,6 @@ from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from itertools import combinations, product
 from math import ceil
 
-def convert_cluster_labels(labels_tab, cluster_tab):
-    res = []
-    for i in range(labels_tab.shape[0]):
-        res.append( cluster_tab[labels_tab[i]] )
-    return np.array( res )
-
 #plot functions
 def plt_random_sample(x, n_sample=20):
     
