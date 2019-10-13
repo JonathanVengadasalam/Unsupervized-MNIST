@@ -3,8 +3,6 @@ An unsupervized machine learning with Python [Scikit-Learn](https://scikit-learn
 
 ![random sample of x](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/x%20random%20sample.png)
 
-![y distribution](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/y%20distribution.png)
-
 ![pca rbf](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Drbf).png)
 
 ![pca cosine](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Dcosine).png)
