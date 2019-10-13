@@ -2,7 +2,7 @@
 %matplotlib inline
 %config IPCompleter.greedy=True
 import numpy as np
-from utils import *
+from plot_functions import *
 
 from tensorflow.python.keras.datasets import mnist
 from sklearn.utils import shuffle
