@@ -5,7 +5,6 @@ from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from itertools import combinations, product
 from math import ceil
 
-#plot functions
 def plt_random_sample(x, n_sample=20):
     
     select = x[np.random.randint(x.shape[0], size=n_sample)]
