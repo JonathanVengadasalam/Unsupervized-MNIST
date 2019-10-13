@@ -5,7 +5,14 @@ from matplotlib.offsetbox import AnnotationBbox, OffsetImage
 from itertools import combinations, product
 from math import ceil
 
-def random_sample(x, n_sample=20):
+def convert_cluster_labels(labels_tab, cluster_tab):
+    res = []
+    for i in range(labels_tab.shape[0]):
+        res.append( cluster_tab[labels_tab[i]] )
+    return np.array( res )
+
+#plot functions
+def plt_random_sample(x, n_sample=20):
     
     select = x[np.random.randint(x.shape[0], size=n_sample)]
     n_line = ceil(n_sample/20)
@@ -14,7 +21,7 @@ def random_sample(x, n_sample=20):
     for ax, i in zip(axes.ravel(),range(select.shape[0])):
         ax.imshow(select[i, :], cmap="binary")
         ax.set_xticks([]), ax.set_yticks([])
-        
+
 def plt_clusters_shape(x, y):
     tmp = []
     
@@ -29,8 +36,8 @@ def plt_clusters_shape(x, y):
         ax.set_title("Cluster : {}".format(i))
         ax.set_xticks([]), ax.set_yticks([])
         
-def yColor_xImshow_on_xProjection(xprojected, y2text, x2imshow=None, y2color=None, ax=None, figsize=(20,10), ysize=16):
-    
+def plt_2axes_projection(xprojected, y2text, x2imshow=None, y2color=None, ax=None, figsize=(20,10), ysize=16):
+    """ itc = image text and color """
     xmin, xmax = np.min(xprojected,0), np.max(xprojected,0)
     x = (xprojected -xmin) / (xmax - xmin)
     if type(y2color) != np.ndarray:
@@ -57,7 +64,7 @@ def yColor_xImshow_on_xProjection(xprojected, y2text, x2imshow=None, y2color=Non
                                          x[i]))
     plt.xticks([]), plt.yticks([])
     
-def yColor_on_xProjection(x, y, size=1):
+def plt_projections(x, y, size=1):
     
     combs = list(combinations(range(x.shape[1]), 2))
     n_line = ceil(len(combs)/3)
@@ -69,7 +76,7 @@ def yColor_on_xProjection(x, y, size=1):
         
     fig.colorbar(scatter, ax=axes, orientation="horizontal", fraction=0.05/n_line, pad=0.1/n_line)
     
-def matrix_heatmap(cm, normalize=False, figsize=(5,5), title="Heatmap", cmap=plt.cm.Blues):
+def plt_matrix_heatmap(cm, normalize=False, figsize=(5,5), title="Heatmap", cmap=plt.cm.Blues):
     
     thresh = cm.max() / 2.
     fmt = "d"
@@ -87,26 +94,3 @@ def matrix_heatmap(cm, normalize=False, figsize=(5,5), title="Heatmap", cmap=plt
         plt.text(j, i, format(cm[i, j], fmt),\
                  horizontalalignment="center",\
                  color="white" if cm[i, j] > thresh else "black")
-        
-def count_duplicate_index(*vectors):
-    
-    res = {}
-    indexes = vectors[0]
-    if len(vectors) > 1:
-        indexes = zip(*vectors)
-        
-    for idx in indexes:
-        if idx in res:
-            res[ idx ] += 1
-        else:
-            res[ idx ] = 1
-    return res
-  
-def convert_cluster_labels(labels_tab, cluster_tab):
-    
-    res = []
-    
-    for i in range(labels_tab.shape[0]):
-        res.append( cluster_tab[labels_tab[i]] )
-        
-    return np.array( res )
