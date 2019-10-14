@@ -23,12 +23,17 @@ def getdata(path):
     fichier.close()
     return res
 
-def load_data():
-    #import data
-    with zipfile.ZipFile("data/mnist.zip","r") as zip_ref:
+def unzip():
+    with zipfile.ZipFile("Unsupervized-MNIST-master","r") as zip_ref:
         zip_ref.extractall()
         zip_ref.close()
-    xdata, ydata = getdata("data/x"), getdata("data/y")
+    with zipfile.ZipFile("Unsupervized-MNIST-master/data/mnist.zip","r") as zip_ref:
+        zip_ref.extractall()
+        zip_ref.close()
+
+def load_data():
+    #import data
+    xdata, ydata = getdata("Unsupervized-MNIST-master/data/x"), getdata("Unsupervized-MNIST-master/data/y")
     x_notscaled = xdata[::50,:,:]
     x_notscaled = np.reshape(x_notscaled,(x_notscaled.shape[0],-1))
     y = ydata[::50]
