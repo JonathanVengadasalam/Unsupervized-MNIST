@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 %matplotlib inline
 %config IPCompleter.greedy=True
+import zipfile
 import numpy as np
 from plot_functions import *
 
