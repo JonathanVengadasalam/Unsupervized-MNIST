@@ -31,35 +31,38 @@ def import_data():
     
     return x_notscaled, x, y
 
-def pca():
+def pca(x, y, x_notscaled=None):
     #pca kernel=rbf
     xprojected = KernelPCA(n_components=4, kernel="rbf").fit_transform(x)
     plt_projections(xprojected, y, 2)
 
     #pca kernel=cosine
     xprojected = KernelPCA(n_components=2, kernel="cosine").fit_transform(x)
+    if type(x_notscaled) == type(None): x_notscaled = x
     plt_2axes_projection(xprojected, y, x_notscaled)
 
-def tsne():
+def tsne(x, y, x_notscaled=None):
     xprojected_tsne = TSNE(n_components=2, perplexity=30, learning_rate=200, n_iter=5000).fit_transform(x)
-    plt_2axes_projection(xprojected_tsne, y, x_not_scaled)
+    if type(x_notscaled) == type(None): x_notscaled = x
+    plt_2axes_projection(xprojected_tsne, y, x_notscaled)
     return xprojected_tsne
 
-def km_clustering():
+def km_clustering(x, y):
     km = KMeans(n_clusters=10, init="k-means++", max_iter=500, n_init=20, n_jobs=2)
-    km.fit(x_notscaled)
+    km.fit(x)
     plt_matrix_heatmap(confusion_matrix(y, km.labels_), title="clusters and tagets distribution")
-    plt_clusters_shape(x_notscaled, km.labels_)
+    plt_clusters_shape(x, km.labels_)
     print("adjusted rand : {}\nsilhouette : {}"\
           .format(adjusted_rand_score(y, km.labels_),silhouette_score(x_notscaled, km.labels_)))
 
-def ac_clustering():
+def ac_clustering(x, y, projected=None):
     ac = AgglomerativeClustering(n_clusters=10, affinity="euclidean", compute_full_tree=True, linkage="ward")
-    ac.fit(x_notscaled)
+    ac.fit(x)
     matrix_heatmap(confusion_matrix(y, ac.labels_), title="clusters and tagets distribution")
-    plt_clusters_shape(x_not_scaled, ac.labels_)
-    random_sample(x_notscaled[ac.labels_ == 3], 40)
-    plt_2axes_projection(xprojected_tsne, y, y2color=ac.labels_)
-    plt.title("Target (number) vs Cluster (color) on TSNE projection", fontdict={"fontsize":"20"})
+    plt_clusters_shape(x, ac.labels_)
+    random_sample(x[ac.labels_ == 3], 40)
+    if type(projected) != type(None):
+        plt_2axes_projection(projected, y, y2color=ac.labels_)
+        plt.title("Target (number) vs Cluster (color) on TSNE projection", fontdict={"fontsize":"20"})
     print("adjusted rand : {}\nsilhouette : {}"\
           .format(adjusted_rand_score(y, ac.labels_),silhouette_score(x_notscaled, ac.labels_)))             
