@@ -32,9 +32,6 @@ An random sample of dataset.
 PCA with radial basis function kernel (rbf) for the 4 first components. The color represents the target y (0 to 9) on the components projections.
 ![pca rbf](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Drbf).png)
 
-PCA with cosine kernel for the 2 first components. The image, color and number represents the target y on the components projections.
-![pca cosine](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Dcosine).png)
-
 TSNE on 2 components, perplexity=30, learning_rate=200. The image, color and number represents the target y on the components projections. ![tsne](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/tsne%20(perplexity%3D10%20-%20epsilon%3D200).png)
 
 K-Means clustering's confusion matrix.
