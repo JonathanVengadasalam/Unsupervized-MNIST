@@ -38,8 +38,11 @@ PCA with cosine kernel for the 2 first components. The image, color and number r
 TSNE on 2 components, perplexity=30, learning_rate=200. The image, color and number represents the target y on the components projections. ![tsne](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/tsne%20(perplexity%3D10%20-%20epsilon%3D200).png)
 
 K-Means clustering's confusion matrix.
+
 ![k-means](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/km%20distributions.png)
+
 k-Means clustering shape.
+
 ![k-means clusters shape](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/k-means%20clusters%20shape.png)
 
 ## Acknowledgements
