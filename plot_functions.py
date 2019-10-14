@@ -12,7 +12,7 @@ def plt_random_sample(x, n_sample=20):
     fig, axes = plt.subplots(n_line, 20, figsize=(20, 1.4*n_line))
     
     for ax, i in zip(axes.ravel(),range(select.shape[0])):
-        ax.imshow(select[i, :], cmap="binary")
+        ax.imshow(np.reshape(select[i, :], (28, 28)), cmap="binary")
         ax.set_xticks([]), ax.set_yticks([])
 
 def plt_clusters_shape(x, y):
