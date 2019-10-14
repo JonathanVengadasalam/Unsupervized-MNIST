@@ -23,7 +23,7 @@ def getdata(path):
     fichier.close()
     return res
 
-def import_data():
+def load_data():
     #import data
     with zipfile.ZipFile("data/mnist.zip","r") as zip_ref:
         zip_ref.extractall()
