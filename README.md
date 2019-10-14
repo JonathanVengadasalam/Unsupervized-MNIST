@@ -3,10 +3,10 @@ An unsupervized machine learning with Python [Scikit-Learn](https://scikit-learn
 
 ## About The Project
 This project is an overview of principal unsupervized methods on mnist datasets :
- - principal component analysis
- - t-distributed stochastic neighbor embedding
- - k-means clustering
- - agglomerative clustering
+ - principal component analysis (pca)
+ - t-distributed stochastic neighbor embedding (tsne)
+ - k-means clustering (km)
+ - agglomerative clustering (ac)
 
 ## Getting Started
 ### Prerequisites
@@ -26,7 +26,7 @@ This project is an overview of principal unsupervized methods on mnist datasets 
    ```
 
 ## Displays and Results
-An random sample of dataset :
+An random sample of dataset.
 ![random sample of x](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/x%20random%20sample.png)
 
 PCA with radial basis function kernel (rbf) for the 4 first components. The color represents the target y (0 to 9) on the components projections.
@@ -35,7 +35,7 @@ PCA with radial basis function kernel (rbf) for the 4 first components. The colo
 PCA with cosine kernel for the 2 first components. The image, color and number represents the target y on the components projections.
 ![pca cosine](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Dcosine).png)
 
-
+TSNE on 2 components, perplexity=30, learning_rate=200. The image, color and number represents the target y on the components projections. ![tsne](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/tsne%20(perplexity%3D10%20-%20epsilon%3D200).png)
 
 ## Acknowledgements
 * [OpenClassrooms](https://openclassrooms.com/fr/courses/4379436-explorez-vos-donnees-avec-des-algorithmes-non-supervises)
