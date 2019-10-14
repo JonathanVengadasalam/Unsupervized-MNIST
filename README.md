@@ -13,7 +13,7 @@ This project
 * numpy `py -m pip install numpy`
 * scikitlearn `pip install -U scikit-learn`
 
-## Usage
+### Usage
 1. `from functions import *`
 2. unzip the mnist dataset in the folder data `unzip()`
 3. load dataset `x_notscaled, x, y = load_data()`
