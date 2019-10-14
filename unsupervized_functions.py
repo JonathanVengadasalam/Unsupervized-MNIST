@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 %matplotlib inline
 %config IPCompleter.greedy=True
+import os
+import pickle
 import zipfile
 import numpy as np
 from plot_functions import *
@@ -13,11 +15,20 @@ from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.metrics import silhouette_score, adjusted_rand_score, confusion_matrix
 
+def getdata(path):
+    os.path.exists(path)
+    fichier = open(path,"rb")
+    tmpPickle = pickle.Unpickler(fichier)
+    res = tmpPickle.load()
+    fichier.close()
+    return res
+
 def import_data():
     #import data
-    (xtrain, ytrain), (xtest, ytest) = mnist.load_data()
-    xdata = np.concatenate((xtrain,xtest))
-    ydata = np.concatenate((ytrain,ytest))
+    with zipfile.ZipFile("data/mnist.zip","r") as zip_ref:
+        zip_ref.extractall()
+        zip_ref.close()
+    xdata, ydata = getdata("data/x"), getdata("data/y")
     x_notscaled = xdata[::50,:,:]
     x_notscaled = np.reshape(x_notscaled,(x_notscaled.shape[0],-1))
     y = ydata[::50]
