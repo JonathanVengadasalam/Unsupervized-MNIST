@@ -6,7 +6,11 @@ An unsupervized machine learning with Python [Scikit-Learn](https://scikit-learn
 * [Acknowledgements](#acknowledgements)
 
 ## About The Project
-This project 
+This project is an overview of principal unsupervized methods on mnist datasets :
+ - principal component analysis
+ - t-distributed stochastic neighbor embedding
+ - k-means clustering
+ - agglomerative clustering
 
 ## Getting Started
 ### Prerequisites
