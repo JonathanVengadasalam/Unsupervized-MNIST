@@ -31,6 +31,12 @@ An random sample of dataset :
 
 PCA with radial basis function kernel (rbf) for the 4 first components. The color represents the target y (0 to 9) on the components projections.
 ![pca rbf](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Drbf).png)
+
+PCA with cosine kernel for the 2 first components. The image, color and number represents the target y on the components projections.
+![pca cosine](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Dcosine).png)
+
+
+
 ## Acknowledgements
 * [OpenClassrooms](https://openclassrooms.com/fr/courses/4379436-explorez-vos-donnees-avec-des-algorithmes-non-supervises)
 
