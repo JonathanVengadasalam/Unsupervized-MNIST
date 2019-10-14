@@ -25,10 +25,11 @@ This project is an overview of principal unsupervized methods on mnist datasets 
    ac_clustering(x, y, projected)
    ```
 
-### Displays and Results
+## Displays and Results
 An random sample of dataset :
 ![random sample of x](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/x%20random%20sample.png)
-PCA with radial basis function kernel (rbf) for the 4 first components. The color determinesthe target y (0 to 9) on the components projections.
+
+PCA with radial basis function kernel (rbf) for the 4 first components. The color represents the target y (0 to 9) on the components projections.
 ![pca rbf](https://github.com/JonathanVengadasalam/Unsupervized-MNIST/blob/master/images/pca%20(kernel%3Drbf).png)
 ## Acknowledgements
 * [OpenClassrooms](https://openclassrooms.com/fr/courses/4379436-explorez-vos-donnees-avec-des-algorithmes-non-supervises)
