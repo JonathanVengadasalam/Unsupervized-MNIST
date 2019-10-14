@@ -5,7 +5,7 @@ import os
 import pickle
 import zipfile
 import numpy as np
-from plot_functions import *
+from ploting_functions import *
 
 from tensorflow.python.keras.datasets import mnist
 from sklearn.utils import shuffle
